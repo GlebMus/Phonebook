@@ -20,10 +20,12 @@ def create_contacts_generator() -> dict:
 contacts = create_contacts_generator()
 
 
-def add_data_to_contacts(name: str, last_name: str, surname: str, organization: str,
-                         personal_phone: str, home_phone: str) -> None:
+def add_data_to_contacts(name: str, last_name: str, surname: str,
+                         organization: str, personal_phone: str,
+                         home_phone: str) -> None:
     """
-    Функция add_data_to_contacts добавляет переданные данные в файл с контактами
+    Функция add_data_to_contacts
+    добавляет переданные данные в файл с контактами
 
     :param name: str,
     :param last_name: str,
@@ -58,8 +60,9 @@ def add_data_to_contacts(name: str, last_name: str, surname: str, organization: 
         print(f"При добавлении данных произошла ошибка! {exp}")
 
 
-def find_contact(name: str = '', last_name: str = '', surname: str = '', organization: str = '',
-                 personal_phone: str = '', home_phone: str = '') -> Optional[dict, None]:
+def find_contact(name: str = '', last_name: str = '', surname: str = '',
+                 organization: str = '', personal_phone: str = '',
+                 home_phone: str = '') -> Optional[dict, None]:
     """
     Функция find_contact ищет контакт в файле по переданным параметрам
 
@@ -75,12 +78,18 @@ def find_contact(name: str = '', last_name: str = '', surname: str = '', organiz
         with open("phonebook.json", "r", encoding="utf-8") as data:
             all_data = json.load(data)
             for contact in all_data:
-                if (name and name != contact["data"]["first_name"]) or \
-                        (last_name and last_name != contact["data"]["last_name"]) or \
-                        (surname and surname != contact["data"]["surname"]) or \
-                        (organization and organization != contact["data"]["organization"]) or \
-                        (personal_phone and personal_phone != contact["data"]["personal_phone"]) or \
-                        (home_phone and home_phone != contact["data"]["home_phone"]):
+                if (name and
+                    name != contact["data"]["first_name"]) or \
+                    (last_name and
+                     last_name != contact["data"]["last_name"]) or \
+                    (surname and
+                     surname != contact["data"]["surname"]) or \
+                    (organization and
+                     organization != contact["data"]["organization"]) or \
+                    (personal_phone and
+                     personal_phone != contact["data"]["personal_phone"]) or \
+                    (home_phone and
+                     home_phone != contact["data"]["home_phone"]):
                     continue
                 else:
                     return contact
@@ -89,10 +98,13 @@ def find_contact(name: str = '', last_name: str = '', surname: str = '', organiz
         print(f"При поиске контакта произошла ошибка!{exp}")
 
 
-def edit_contact(contact_to_edit: dict, name: str, last_name: str, surname: str,
-                 organization: str, personal_phone: str, home_phone: str) -> None:
+def edit_contact(contact_to_edit: dict, name: str, last_name: str,
+                 surname: str, organization: str, personal_phone: str,
+                 home_phone: str) -> None:
     """
-    Функция edit_contact получет н вход контакт, который надо изменить и меняет его параметры
+    Функция edit_contact
+    получет на вход контакт, который надо изменить
+    и меняет его параметры
 
     :param contact_to_edit: dict,
     :param name: str,
